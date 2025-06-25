@@ -1,0 +1,342 @@
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ... (todo CSS permanece igual ao exemplo anterior) ... */
+body {
+  background: #f4f4f4;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+.simulador-container {
+  max-width: 340px;
+  background: #fff;
+  margin: 50px auto;
+  padding: 46px 28px 38px 28px;
+  border-radius: 22px;
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.09);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.tituloVermelhoDark {
+  color: #d81a1e;
+  text-align: center;
+  font-size: 1.14rem;
+  font-weight: bold;
+  margin-bottom: 28px;
+  letter-spacing: 0.01em;
+}
+.caixa-input {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1.2px solid #d81a1e;
+  border-radius: 11px;
+  margin-bottom: 22px;
+  font-size: 1rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 500;
+  appearance: none;
+  background: url("data:image/svg+xml;charset=UTF-8,<svg width='22' height='14' viewBox='0 0 22 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M1 1L11 13L21 1' stroke='%23d81a1e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat right 1.2rem center/18px 14px;
+  background-color: #fff;
+}
+.opcao-label {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 11px;
+  text-align: center;
+  font-size: 0.96rem;
+}
+.btn-group {
+  display: flex;
+  margin-bottom: 22px;
+  background: #f1f1f1;
+  border-radius: 26px;
+  padding: 3px;
+  justify-content: center;
+}
+.btn-opcao {
+  flex: 1;
+  border: none;
+  padding: 11px 0;
+  border-radius: 20px;
+  background: none;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #b4b4b4;
+  transition: all 0.22s;
+  cursor: pointer;
+  outline: none;
+  margin: 0 2px;
+}
+.btn-opcao.ativo {
+  background: #d81a1e;
+  color: #fff;
+  box-shadow: 0 1px 8px rgba(216,26,30,0.09);
+}
+.label-range {
+  margin: 16px 0 5px 2px;
+  font-size: 1.01rem;
+  color: #333;
+  font-weight: 600;
+}
+.valor-selecionado {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 11px;
+  margin-top: 3px;
+}
+.valor-selecionado .rs {
+  font-size: 1.1rem;
+  margin-right: 3px;
+  color: #d81a1e;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.valor-selecionado .valor {
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: #232323;
+  line-height: 1.0;
+}
+.valor-selecionado .centavos {
+  font-size: 1rem;
+  margin-left: 2px;
+  color: #888;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.input-range-wrap {
+  width: 100%;
+  margin-bottom: 18px;
+  margin-top: 10px;
+  padding-bottom: 18px;
+}
+input[type="range"] {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: none;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  background: #f3f3f3;
+  border-radius: 8px;
+  outline: none;
+  box-shadow: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #d81a1e;
+  box-shadow: 0 2px 9px rgba(216,26,30,0.16);
+  border: 3px solid #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: -9px;
+}
+input[type="range"]:focus::-webkit-slider-thumb {
+  background: #b51720;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #d81a1e;
+  box-shadow: 0 2px 9px rgba(216,26,30,0.16);
+  border: 3px solid #fff;
+  cursor: pointer;
+}
+input[type="range"]:focus::-moz-range-thumb {
+  background: #b51720;
+}
+input[type="range"]::-ms-thumb {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #d81a1e;
+  box-shadow: 0 2px 9px rgba(216,26,30,0.16);
+  border: 3px solid #fff;
+  cursor: pointer;
+}
+input[type="range"]:focus::-ms-thumb {
+  background: #b51720;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 8px;
+  background: #ededed;
+  border-radius: 8px;
+}
+input[type="range"]::-ms-fill-lower,
+input[type="range"]::-ms-fill-upper {
+  background: #ededed;
+  border-radius: 8px;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+.range-values {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0;
+  margin-bottom: 2px;
+  font-size: 0.99rem;
+  color: #b41e1e;
+  padding: 0 1px;
+  user-select: none;
+}
+.checkbox-wrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  margin-top: 7px;
+}
+input[type="checkbox"] {
+  accent-color: #d81a1e;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  margin-right: 7px;
+  border: 2px solid #d81a1e;
+}
+.label-checkbox {
+  font-size: 0.97rem;
+  color: #393939;
+  font-weight: 500;
+  cursor: pointer;
+}
+.btn-simular {
+  background: #d81a1e;
+  color: #fff;
+  padding: 15px 0 13px 0;
+  width: 100%;
+  border-radius: 18px;
+  font-size: 1.12rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(216,26,30,0.15);
+  letter-spacing: 0.01em;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+.btn-simular:hover {
+  background: #b51720;
+}
+</style>
+
+
+<div class="simulador-container">
+  <div class="tituloVermelhoDark">
+    Você está perto de realIizar<br />o seu projeto de vida.
+  </div>
+  <select class="caixa-input" id="selectPlano" onchange="mudarRangePorPlanoOuTipo()">
+    <option value="Imóveis">Imóveis</option>
+    <option value="Serviços">Serviços</option>
+    <option value="Moto">Moto</option>
+    <option value="Veículos">Veículos</option>
+  </select>
+  <span class="opcao-label">Escolha uma opção:</span>
+  <div class="btn-group">
+    <button class="btn-opcao" id="btnParcela" onclick="mudarTipo('Parcela', event)">Parcela</button>
+    <button class="btn-opcao ativo" id="btnCredito" onclick="mudarTipo('Crédito', event)">Crédito</button>
+  </div>
+  <div class="label-range" id="labelFaixa">Escolha o valor do crédito:</div>
+  <div class="valor-selecionado">
+    <span class="rs">R$</span>
+    <span class="valor" id="valorCredito">45.000</span>
+    <span class="centavos" id="centavosCredito">,00</span>
+  </div>
+  <div class="input-range-wrap">
+    <input
+      type="range"
+      id="inputValor"
+      min="45000"
+      max="250000"
+      step="1000"
+      value="45000"
+      oninput="atualizarValor(this.value)"
+    />
+    <div class="range-values">
+      <span id="rangeMinLabel">R$ 45.000,00</span>
+      <span id="rangeMaxLabel">R$ 250.000,00</span>
+    </div>
+  </div>
+  <div class="checkbox-wrap">
+    <input type="checkbox" id="checkOutroValor">
+    <label for="checkOutroValor" class="label-checkbox">Informar outro valor</label>
+  </div>
+  <button class="btn-simular" onclick="simular()">SIMULAR CONSÓRCIO</button>
+</div>
+
+<script>
+  let tipoSelecionado = "Crédito";
+  // Config de faixas:
+  const ranges = {
+    Imóveis: {
+      Crédito:   { min: 80000,   max: 1000000, step: 1000, minLabel: "R$ 80 000", maxLabel: "R$ 1.000.000", initial: 80000, label: "Escolha o valor do crédito:" },
+      Parcela:   { min: 453.68,  max: 5697,    step: 1,    minLabel: "R$ 453,68", maxLabel: "R$ 5.697", initial: 454, label: "Escolha o valor da parcela:" }
+    },
+    Serviços: {
+      Crédito:   { min: 15000, max: 46150.50, step: 50, minLabel: "R$ 15.000,00", maxLabel: "R$ 46.150,50", initial: 15000, label: "Escolha o valor do crédito:" },
+      Parcela:   { min: 332.04, max: 11445.32, step: 10, minLabel: "R$ 332,04", maxLabel: "R$ 11.445,32", initial: 332.04, label: "Escolha o valor da parcela:" }
+    },
+    Moto: {
+      Crédito:   { min: 15000, max: 30000, step: 100, minLabel: "R$ 15.000,00", maxLabel: "R$ 30.000,00", initial: 15000, label: "Escolha o valor do crédito:" },
+      Parcela:   { min: 369.83, max: 739.65, step: 1, minLabel: "R$ 369,83", maxLabel: "R$ 739,65", initial: 369.83, label: "Escolha o valor da parcela:" }
+    },
+    Veículos: {
+      Crédito:   { min: 45000, max: 250000, step: 1000, minLabel: "R$ 45.000,00", maxLabel: "R$ 250.000,00", initial: 45000, label: "Escolha o valor do crédito:" },
+      Parcela:   { min: 428.46, max: 2590.95, step: 1, minLabel: "R$ 428,46", maxLabel: "R$ 2.590,95", initial: 428.46, label: "Escolha o valor da parcela:" }
+    }
+  };
+
+  function mudarTipo(tipo, evt) {
+    tipoSelecionado = tipo;
+    document.getElementById('btnCredito').classList.remove('ativo');
+    document.getElementById('btnParcela').classList.remove('ativo');
+    if (tipo === "Crédito") document.getElementById('btnCredito').classList.add('ativo');
+    else document.getElementById('btnParcela').classList.add('ativo');
+    mudarRangePorPlanoOuTipo();
+  }
+
+  function mudarRangePorPlanoOuTipo() {
+    const plano = document.getElementById("selectPlano").value;
+    const conf = ranges[plano][tipoSelecionado];
+
+    const inputValor = document.getElementById("inputValor");
+    inputValor.min = conf.min;
+    inputValor.max = conf.max;
+    inputValor.step = conf.step;
+
+    // Ajustar valor inicial caso esteja fora do novo range
+    let valorAtual = parseFloat(inputValor.value);
+    if (valorAtual < conf.min || valorAtual > conf.max) valorAtual = conf.initial;
+
+    inputValor.value = valorAtual;
+    atualizarValor(valorAtual);
+
+    document.getElementById("rangeMinLabel").textContent = conf.minLabel;
+    document.getElementById("rangeMaxLabel").textContent = conf.maxLabel;
+    document.getElementById("labelFaixa").textContent = conf.label;
+  }
+
+  function atualizarValor(valor) {
+    valor = parseFloat(valor);
+    let partes = valor.toFixed(2).split(".");
+    let valorFormatado = parseInt(partes[0]).toLocaleString("pt-BR");
+    document.getElementById("valorCredito").textContent = valorFormatado;
+    document.getElementById("centavosCredito").textContent = "," + partes[1];
+  }
+
+  function simular() {
+    const plano = document.getElementById("selectPlano").value;
+    const valor = document.getElementById("valorCredito").textContent + document.getElementById("centavosCredito").textContent;
+    const tipo = tipoSelecionado;
+    alert(`Plano: ${plano}\nTipo: ${tipo}\nValor: R$ ${valor}`);
+  }
+
+  // Inicializa visual ao carregar
+  window.onload = mudarRangePorPlanoOuTipo;
+</script>
