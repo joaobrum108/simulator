@@ -224,10 +224,140 @@ input[type="checkbox"] {
 .btn-simular:hover {
   background: #b51720;
 }
+
+
+.card-resultado {
+  max-width: 340px;
+  background: #fff;
+  margin: 50px auto;
+  padding: 46px 28px 38px 28px;
+  border-radius: 22px;
+  box-shadow: 0 4px 28px rgba(216,26,30,0.09);
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  transition: 0.3s;
+}
+.titulo-resultado {
+  font-size: 1.18rem;
+  font-weight: bold;
+  color: #d81a1e;
+  text-align: center;
+  margin-bottom: 18px;
+  letter-spacing: 0.01em;
+}
+.paragrafo-resultado {
+  font-size: 1.03rem;
+  color: #444;
+  text-align: center;
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+
+
+.form-resultado {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+.input-form {
+  font-family: 'Montserrat', Arial, sans-serif;
+  padding: 11px 12px;
+  border: 1.2px solid #d81a1e;
+  border-radius: 7px;
+  font-size: 1rem;
+  outline: none;
+  margin-bottom: 0;
+  transition: border 0.2s;
+}
+.input-form:focus {
+  border-color: #b51720;
+}
+.cep-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cep-link {
+  font-size: 0.92rem;
+  color: #111;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.18s;
+  white-space: nowrap;
+}
+.cep-link:hover {
+  color: #d81a1e;
+}
+.checkbox-form {
+  display: flex;
+  align-items: center;
+  font-size: 0.96rem;
+  color: #b41e1e;
+  margin-bottom: 0;
+  gap: 6px;
+  font-weight: 500;
+}
+.checkbox-form label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.98rem;
+  color: #b41e1e;
+  font-weight: 600;
+  user-select: none;
+}
+.checkbox-form input[type="checkbox"] {
+  accent-color: #d81a1e;
+  margin-right: 3px;
+  width: 16px;
+  height: 16px;
+}
+.botoes-form {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  gap: 14px;
+}
+.btn-voltar {
+  background: #eee;
+  color: #888;
+  font-size: 1.08rem;
+  font-weight: 700;
+  padding: 11px 0;
+  border: none;
+  border-radius: 12px;
+  width: 40%;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+.btn-voltar:hover {
+  background: #ddd;
+  color: #d81a1e;
+}
+.btn-resultado {
+  background: #d81a1e;
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 700;
+  padding: 11px 0;
+  border: none;
+  border-radius: 12px;
+  width: 55%;
+  cursor: pointer;
+  transition: background 0.18s;
+  box-shadow: 0 2px 10px rgba(216,26,30,0.08);
+}
+.btn-resultado:hover {
+  background: #b51720;
+}
+
+
 </style>
 
 
-<div class="simulador-container">
+<div class="simulador-container" id="simuladorContainer">
   <div class="tituloVermelhoDark">
     Você está perto de realIizar<br />o seu projeto de vida.
   </div>
@@ -269,6 +399,43 @@ input[type="checkbox"] {
   </div>
   <button class="btn-simular" onclick="simular()">SIMULAR CONSÓRCIO</button>
 </div>
+
+<div class="card-resultado" id="cardResultado" style="display:none">
+  <div class="titulo-resultado">
+    Realize seus planos<br>com a Ademicon
+  </div>
+  <p class="paragrafo-resultado">
+    Preencha os campos abaixo<br>
+    para ver os resultados:
+  </p>
+  <form class="form-resultado" autocomplete="off">
+    <input type="text" class="input-form" placeholder="Nome:" required>
+    <input type="email" class="input-form" placeholder="E-mail:" required>
+    <input type="tel" class="input-form" placeholder="Telefone:" required>
+    <div class="cep-wrap">
+      <input type="text" class="input-form" placeholder="CEP:" required maxlength="9" style="flex:1;">
+      <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank" class="cep-link">Encontre seu CEP</a>
+    </div>
+    <div class="checkbox-form">
+      <label>
+        <input type="checkbox" required>
+        Aceito os <a href="#" target="_blank" style="color:#d81a1e;text-decoration:underline;">Termos de Privacidade.</a>
+      </label>
+    </div>
+    <div class="checkbox-form">
+      <label>
+        <input type="checkbox">
+        Sim, eu concordo em receber notificações.
+      </label>
+    </div>
+    <div class="botoes-form">
+      <button type="button" class="btn-voltar" onclick="voltarSimulador()">Voltar</button>
+      <button type="submit" class="btn-resultado">Resultado</button>
+    </div>
+  </form>
+</div>
+
+
 
 <script>
   let tipoSelecionado = "Crédito";
@@ -331,11 +498,20 @@ input[type="checkbox"] {
   }
 
   function simular() {
-    const plano = document.getElementById("selectPlano").value;
-    const valor = document.getElementById("valorCredito").textContent + document.getElementById("centavosCredito").textContent;
-    const tipo = tipoSelecionado;
-    alert(`Plano: ${plano}\nTipo: ${tipo}\nValor: R$ ${valor}`);
-  }
+  // Esconde o simulador
+  document.getElementById('simuladorContainer').style.display = "none";
+  // Mostra o card de resultado
+  document.getElementById('cardResultado').style.display = "flex";
+  // Opcional: rolar até o card
+  document.getElementById('cardResultado').scrollIntoView({ behavior: "smooth" });
+}
+
+function voltarSimulador() {
+  document.getElementById('cardResultado').style.display = "none";
+  document.getElementById('simuladorContainer').style.display = "flex";
+}
+
+
 
   // Inicializa visual ao carregar
   window.onload = mudarRangePorPlanoOuTipo;
