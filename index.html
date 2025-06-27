@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-/* ... (todo CSS permanece igual ao exemplo anterior) ... */
+
 body {
   background: #f4f4f4;
   font-family: 'Montserrat', Arial, sans-serif;
@@ -354,6 +354,71 @@ input[type="checkbox"] {
 }
 
 
+.termos-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 390px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 4px 0 18px rgba(0,0,0,0.08);
+  z-index: 10000;
+  animation: slideIn .28s ease;
+}
+@keyframes slideIn {
+  from { left: -420px; opacity: 0; }
+  to { left: 0; opacity: 1; }
+}
+.termos-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  position: relative;
+}
+.termos-content h2 {
+  margin: 0;
+  padding: 32px 32px 0 32px;
+  background: #fff;
+  color: #d81a1e;
+  font-size: 1.28rem;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  border-bottom: 1px solid #f2f2f2;
+}
+.fechar-termos {
+  position: absolute;
+  top: 30px;
+  right: 38px;
+  font-size: 2.1rem;
+  color: #d81a1e;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 10;
+  background: #fff;
+  border-radius: 50%;
+  padding: 2px 8px;
+  transition: color 0.2s, background 0.2s;
+}
+.fechar-termos:hover {
+  color: #222;
+  background: #f8f8f8;
+}
+.termos-content p, .termos-content ul, .termos-content ol {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  margin: 0;
+  padding: 26px 32px 38px 32px;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  max-height: calc(100vh - 82px); 
+}
+
+
+
 </style>
 
 
@@ -414,7 +479,6 @@ input[type="checkbox"] {
     <input type="tel" class="input-form" placeholder="Telefone:" required>
     <div class="cep-wrap">
       <input type="text" class="input-form" placeholder="CEP:" required maxlength="9" style="flex:1;">
-      <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank" class="cep-link">Encontre seu CEP</a>
     </div>
     <div class="checkbox-form">
       <label>
@@ -436,10 +500,121 @@ input[type="checkbox"] {
 </div>
 
 
+<div id="termosContainer" class="termos-container">
+  <div class="termos-content">
+    <span class="fechar-termos" onclick="fecharTermos()">&times;</span>
+    <h2>Política de Privacidade</h2>
+    <p><strong>POLÍTICAS DE PRIVACIDADE</strong>
+
+      A presente Política de Privacidade tem por finalidade demonstrar o compromisso da ADEMICON ADMINISTRADORA DE CONSÓRCIO S/A, pessoa jurídica de direito privado, inscrita no CNPJ sob nº 84.911.098/0001-29, com sede à Avenida Sete de Setembro, n.º 5870, Bairro Batel, Curitiba, Paraná, com a privacidade e a proteção dos dados pessoais coletados no desenvolvimento de suas atividades, e tornar públicas suas regras sobre a coleta, registro, armazenamento, uso, compartilhamento, enriquecimento e eliminação dos dados de acordo com as leis em vigor. <br>
+      
+      <strong>QUAIS DADOS PESSOAIS COLETAMOS?</strong> <br>
+      
+      Para o regular desenvolvimento de nossa atividade, coletamos dados pessoais de nossos clientes, fornecedores, colaboradores e parceiros de negócio, respeitando sempre os princípios da Lei Geral de Proteção de Dados, tais como a minimização dos dados, finalidade e transparência.
+      
+      Dentro deste conceito coletamos e realizamos o tratamento dos seguintes dados pessoais:
+      <br>
+      <strong>a. Dados Cadastrais:</strong> são aqueles dados necessários para o regular desenvolvimento da nossa atividade, coletados quando os titulares entram em contato conosco por telefone, e-mail ou realizam qualquer tipo de simulação em nossos sites;
+      <br>
+      <strong>b. Dados relativos a contratos firmados:</strong> a ADEMICON coleta os dados indispensáveis para firmar compromissos com nossos clientes, fornecedores e parceiros;
+      <br>
+      <strong>c. Dados de Navegação: </strong>utilizamos cookies para melhorar o desempenho e a sua experiência como usuário no nosso site. Os cookies são pequenos arquivos de texto que um site, quando visitado, coloca no computador do usuário ou no seu dispositivo móvel, através do navegador de internet (browser).
+      <br>
+      <strong>Por que utilizamos os seus dados?</strong>
+      <br>
+      1. Para ofertar produtos e serviços a você     <br>
+      2. Para firmar contratos com você     <br>
+      3. Para nos comunicarmos com você     <br>
+      3. Para cumprir nossas obrigações legais e regulatórias     <br>
+      <br>
+      Os dados pessoais são coletados pela ADEMICON com a finalidade de identificar nossos clientes e potenciais clientes, traçar seu perfil, auxiliar na gestão, administração, atendimento, ampliação e melhorias de nossos produtos e serviços.
+      <br>
+      Os dados dos TITULARES também são utilizados para o envio de informações operacionais e de marketing relativas aos produtos e serviços oferecidos pela ADEMICON, sempre respeitando as opções de comunicação realizadas pelo próprio TITULAR.
+      <br>
+      São coletados também dados pessoais de navegação nos websites da ADEMICON por meio de cookies, automaticamente, durante a navegação dos TITULARES em nossos websites. Os dados coletados dessa maneira podem envolver informações a respeito do dispositivo do TITULAR, dados de geolocalização, registros de acesso à aplicação de internet (como IP, data e hora), tempo de uso da plataforma, duração de acesso, cliques e termos buscados.
+      <br>
+      <strong>COMO PROTEGEMOS SEUS DADOS?</strong>  <br>
+      Nossa responsabilidade é cuidar dos seus dados pessoais e utilizá-los somente para as finalidades descritas nesta Política.   <br> Para garantir a sua privacidade e a proteção dos seus dados pessoais, adotamos práticas de segurança e governança adequadas ao nosso mercado,  <br> incluindo o uso de técnicas de criptografia e outros sistemas de segurança da informação.  <br>
+      Contamos um programa de governança e privacidade, regras de boas práticas,  <br> políticas e procedimentos internos que estabelecem as condições de organização, regime de funcionamento, ações educativas, mecanismos de supervisão e de mitigação de riscos e outros aspectos   <br> relacionados ao tratamento de dados pessoais,  <br> assim como promovemos treinamento e ações educativas aos colaboradores das empresas do Grupo.  <br>
+      Nossas medidas para preservar seus dados contra acesso, uso,  <br> alteração, divulgação ou destruição não autorizados incluem a proteção física e lógica dos ativos, comunicações criptografadas, gestão sobre os acessos, adesão ao desenvolvimento seguro de software e políticas internas de conformidade  <br> que inserem a segurança no ciclo de vida dos nossos serviços.  <br>
+      Todos esses controles são continuamente revisados para acompanhar e reagir  <br> ao contexto de ameaças na internet. Ainda assim,   <br> não é possível garantir que os nossos serviços sejam completamente invioláveis. Mas fique tranquilo: contamos com equipes preparadas para detectar e responder prontamente no caso da ocorrência de algum evento ou incidente que comprometa a segurança dos seus dados ou de nossos serviços.  <br>
+      
+      <strong>CUMPRIMENTO AOS DIREITOS DO TITULAR</strong><br>
+      Nós estamos comprometidos com o cumprimento dos seus direitos. Nesta seção vamos explicar como você pode exercê-los.<br>
+      A lei brasileira lhe garante os seguintes direitos:<br>
+      Confirmação e Acesso<br>
+      Permite que você possa verificar se a ADEMICON realiza qualquer atividade de tratamento com seus dados pessoais e, em caso positivo, requisitar uma cópia dos dados pessoais que nós temos sobre você.<br>
+      <br>
+      <strong>Correção</strong>
+      Permite que você solicite a correção dos seus dados pessoais incompletos, inexatos ou desatualizados.
+      <br>
+     <strong> Anonimização, bloqueio ou eliminação</strong>
+      Permite que você nos peça para: (a) anonimizar seus dados, de forma a que eles não possam mais ser relacionados a você e, portanto, deixem de ser dados pessoais; (b) bloquear seus dados, suspendendo temporariamente a possibilidade de os tratarmos; e (c) eliminar seus dados, caso em que apagaremos todos os seus dados sem possibilidade de reversão. Solicitações essas que serão atendidas, salvo os casos previstos em lei.
+      <br>
+     <strong> Portabilidade</strong>
+      Você tem o direito de solicitar, mediante requisição expressa, que seja fornecido a você ou a terceiros que você escolher, os seus dados pessoais em formato estruturado e interoperável, para transferência a outro fornecedor, desde que não viole a propriedade intelectual ou segredo de negócios da nossa empresa. Da mesma forma, você pode pedir que outras empresas enviem à ADEMICON.
+      <br>
+      <strong>Informação sobre o compartilhamento</strong>
+      Você tem o direito de saber as entidades públicas e privadas com as quais a ADEMICON compartilha seus dados, caso aplicável.
+      <br>
+      <strong>Informação sobre a possibilidade de não consentir</strong>
+      Permite que você tenha informações claras e completas sobre a possibilidade e as consequências de não fornecer consentimento. O seu consentimento, quando necessário, deve ser livre e informado. Portanto, sempre que pedirmos seu consentimento, você será livre para negá-lo, ainda que, nesses casos, seja possível que tenhamos que limitar nossos produtos, negócios e experiências.
+      <br>
+      <strong>Revogação do consentimento</strong>
+      Você tem o direito de retirar o seu consentimento em relação às atividades de tratamento que se baseiam nessa base legal. No entanto, isso não afetará a legalidade de qualquer tratamento realizado anteriormente. Se você retirar o seu consentimento, talvez não possamos fornecer determinados produtos e experiências, mas te avisaremos quando isso ocorrer. Para ter acesso aos seus dados ou requerir cumprimento de qualquer outro direito, o TITULAR poderá fazê-lo entranto em contato com a ADEMICON pelo canal: dpo@ademicon.com.br
+      <br>
+      <strong>Com quem compartilhamos seus dados?</strong>
+      Toda base de dados pessoais coletada pela ADEMICON é de sua responsabilidade,<br> sendo que o compartilhamento, quando necessário, <br>será feito dentro dos limites e propósitos dos nossos negócios e das finalidades para as quais foram coletados, sempre respeitando esta Política de Privacidade.<br>
+      A ADEMICON, em especial no relacionamento com CLIENTES, poderá compartilhar dados coletados com seguradoras, corretores de seguro e parceiros de negócio com a finalidade de ofertar serviços e produtos complementares à aquisição de quota de consórcio, além do Banco Central do Brasil e Receita Federal,<br> para o cumprimento de obrigações legais.<br>
+      Em nenhuma hipótese os dados pessoais coletados pela ADEMICON serão vendidos e/ou cedidos sem consentimento expresso <br> e destacado do TITULAR.
+      Internamente, os dados que coletamos são acessados somente por profissionais devidamente autorizados, respeitando os princípios de proporcionalidade, necessidade e relevância para os objetivos do melhor atendimento ao TITULAR, além do compromisso de confidencialidade e <br> preservação da privacidade nos termos desta Política de Privacidade.<br>
+      
+      <strong>Empresas do Grupo</strong>
+      Suas informações são compartilhadas entre as empresas e áreas de negócio do Grupo, <br>
+     as quais estão de acordo com esta Política de Privacidade. <br>
+      
+      <strong>Nossos Fornecedores e Parceiros</strong>
+      Contamos com a ajuda de fornecedores que podem tratar os dados pessoais que coletamos <br>
+       desde que o compartilhamento possua adequação à finalidade da coleta. Sempre buscamos avaliar cuidadosamente nossos fornecedores e firmar 
+       <br>com eles obrigações contratuais de segurança da informação e proteção de dados pessoais, com o objetivo de minimizar riscos para o <br>
+       <br> TITULAR dos dados.
+      
+      <strong>Autoridades Públicas</strong>
+      Autoridades Regulatórias do Setor de Consórcios para o cumprimento de obrigações legais ou regulatórias.
+      
+      <strong>Transferência internacional de dados</strong>
+      Apesar de todos os nossos produtos, negócios e experiências serem destinados a pessoas localizadas no Brasil, 
+      <br>
+      aplicando-se, portanto, a Lei Geral de Proteção de Dados, os dados pessoais que coletamos podem ser transferidos para outros países. <br>
+      Essa transferência ocorre por conta de alguns dos nossos fornecedores, que podem estar localizados no exterior.<br>
+      Essas transferências envolvem apenas empresas que demonstrem estar em conformidade com as leis aplicáveis e mantenham um nível de adequação<br>
+       semelhante ou até mesmo mais rigoroso do que o previsto na legislação brasileira.<br>
+      Caso tenha qualquer dúvida em relação a quais são essas empresas, entre em contato por meio do Portal de Privacidade da ADEMICON ou<br>
+      diretamente com o Encarregado (Data Protection Officer - DPO) da nossa empresa.<br>
+      
+      <strong>Prazo de retenção</strong>
+      Contamos com uma Política de Segurança da Informação com regras sobre a retenção e o <br>
+      descarte de dados pessoais que define as diretrizes para determinar o período de retenção <br>
+      adequado para cada tipo de dado pessoal coletado, considerando a sua natureza, necessidade de coleta e finalidade de tratamento.<br>
+      Dados pessoais são armazenados somente pelo tempo que for necessário para cumprir com as finalidades para as quais foram coletados, <br>
+      salvo se houver qualquer outra razão para sua manutenção como, por exemplo, <br>
+      cumprimento de quaisquer obrigações legais, regulatórias, contratuais, entre outras, <br>
+      desde que fundamentadas em uma base legal.
+      Claro, sempre há o seu direito de solicitar a exclusão dos dados, conforme o item "Quais são os seus direitos como TITULAR <br>
+      de Dados Pessoais?"<br>
+      
+      Como entrar em contato com nossa equipe de Privacidade de Dados?<br>
+      Nós temos um Portal de Privacidade e um Encarregado (Data Protection Officer - DPO) que estão à disposição nos <br>
+      seguintes endereços de contato:<br>
+      <br>
+      E-mail para contato com o Encarregado (Data Protection Officer – DPO): dpo@ademicon.com.br</p><br>
+  </div>
+</div>
+
 
 <script>
   let tipoSelecionado = "Crédito";
-  // Config de faixas:
+
   const ranges = {
     Imóveis: {
       Crédito:   { min: 80000,   max: 1000000, step: 1000, minLabel: "R$ 80 000", maxLabel: "R$ 1.000.000", initial: 80000, label: "Escolha o valor do crédito:" },
@@ -477,7 +652,7 @@ input[type="checkbox"] {
     inputValor.max = conf.max;
     inputValor.step = conf.step;
 
-    // Ajustar valor inicial caso esteja fora do novo range
+
     let valorAtual = parseFloat(inputValor.value);
     if (valorAtual < conf.min || valorAtual > conf.max) valorAtual = conf.initial;
 
@@ -498,11 +673,11 @@ input[type="checkbox"] {
   }
 
   function simular() {
-  // Esconde o simulador
+
   document.getElementById('simuladorContainer').style.display = "none";
-  // Mostra o card de resultado
+
   document.getElementById('cardResultado').style.display = "flex";
-  // Opcional: rolar até o card
+
   document.getElementById('cardResultado').scrollIntoView({ behavior: "smooth" });
 }
 
@@ -512,7 +687,26 @@ function voltarSimulador() {
 }
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  const linkTermos = document.querySelector('.checkbox-form a');
+  if (linkTermos) {
+    linkTermos.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('termosContainer').style.display = 'block';
+    });
+  }
+});
+function fecharTermos() {
+  document.getElementById('termosContainer').style.display = 'none';
+}
 
-  // Inicializa visual ao carregar
+document.querySelector('.form-resultado').addEventListener('submit', function(e){
+  e.preventDefault(); 
+
+  
+  window.location.href = "https://sua-url-destino.com/obrigado";
+});
+
+
   window.onload = mudarRangePorPlanoOuTipo;
 </script>
