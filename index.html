@@ -7,18 +7,18 @@ body {
   font-family: 'Montserrat', Arial, sans-serif;
 }
 .simulador-container {
-  max-width: 340px;
-  background: #fff;
+  max-width: 352px;
+  background: #00b7ff;
   margin: 50px auto;
   padding: 46px 28px 38px 28px;
-  border-radius: 22px;
+  border-radius: 32px;
   box-shadow: 0 4px 28px rgba(0, 0, 0, 0.09);
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
 .tituloVermelhoDark {
-  color: #d81a1e;
+  color: #fff;
   text-align: center;
   font-size: 1.14rem;
   font-weight: bold;
@@ -27,20 +27,21 @@ body {
 }
 .caixa-input {
   width: 100%;
+  color: #fff;
   padding: 13px 15px;
-  border: 1.2px solid #d81a1e;
+  border: 2px solid #ffffff;
   border-radius: 11px;
   margin-bottom: 22px;
   font-size: 1rem;
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 500;
   appearance: none;
-  background: url("data:image/svg+xml;charset=UTF-8,<svg width='22' height='14' viewBox='0 0 22 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M1 1L11 13L21 1' stroke='%23d81a1e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat right 1.2rem center/18px 14px;
-  background-color: #fff;
+ background: url("data:image/svg+xml;charset=UTF-8,<svg width='22' height='14' viewBox='0 0 22 14' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M1 1L11 13L21 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat right 1.2rem center/18px 14px;
+  background-color: #00b7ff;
 }
 .opcao-label {
-  font-weight: 600;
-  color: #444;
+  font-weight: 500;
+  color: #f7f7f7;
   margin-bottom: 11px;
   text-align: center;
   font-size: 0.96rem;
@@ -68,15 +69,16 @@ body {
   margin: 0 2px;
 }
 .btn-opcao.ativo {
-  background: #d81a1e;
+  background: #00b7ff;
   color: #fff;
-  box-shadow: 0 1px 8px rgba(216,26,30,0.09);
+  /* box-shadow: 0 1px 8px rgba(216,26,30,0.09); */
 }
 .label-range {
   margin: 16px 0 5px 2px;
   font-size: 1.01rem;
-  color: #333;
-  font-weight: 600;
+  color: #ffffff;
+  font-weight: 500;
+  text-align: center;
 }
 .valor-selecionado {
   display: flex;
@@ -88,20 +90,20 @@ body {
 .valor-selecionado .rs {
   font-size: 1.1rem;
   margin-right: 3px;
-  color: #d81a1e;
+  color: #003bfd;
   font-weight: 600;
   letter-spacing: 0.03em;
 }
 .valor-selecionado .valor {
   font-size: 2.1rem;
   font-weight: bold;
-  color: #232323;
+  color: #0044ff;
   line-height: 1.0;
 }
 .valor-selecionado .centavos {
   font-size: 1rem;
   margin-left: 2px;
-  color: #888;
+  color: #0044ff;
   font-weight: 600;
   letter-spacing: 0.03em;
 }
@@ -110,6 +112,10 @@ body {
   margin-bottom: 18px;
   margin-top: 10px;
   padding-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
 }
 input[type="range"] {
   width: 100%;
@@ -129,39 +135,39 @@ input[type="range"]::-webkit-slider-thumb {
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: #d81a1e;
-  box-shadow: 0 2px 9px rgba(216,26,30,0.16);
+  background: #00b7ff;
+  box-shadow: 0 2px 9px #00b7ff;
   border: 3px solid #fff;
   cursor: pointer;
   transition: background 0.3s;
   margin-top: -9px;
 }
 input[type="range"]:focus::-webkit-slider-thumb {
-  background: #b51720;
+  background: #00b7ff;
 }
 input[type="range"]::-moz-range-thumb {
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: #d81a1e;
+  background: #00b7ff;
   box-shadow: 0 2px 9px rgba(216,26,30,0.16);
   border: 3px solid #fff;
   cursor: pointer;
 }
 input[type="range"]:focus::-moz-range-thumb {
-  background: #b51720;
+  background: #00b7ff;
 }
 input[type="range"]::-ms-thumb {
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: #d81a1e;
-  box-shadow: 0 2px 9px rgba(216,26,30,0.16);
+  background: #0044ff;
+  box-shadow: 0 2px 9px #0044ff;
   border: 3px solid #fff;
   cursor: pointer;
 }
 input[type="range"]:focus::-ms-thumb {
-  background: #b51720;
+  background: #0044ff;
 }
 input[type="range"]::-webkit-slider-runnable-track {
   height: 8px;
@@ -179,10 +185,13 @@ input[type="range"]:focus {
 .range-values {
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
   margin-top: 0;
   margin-bottom: 2px;
-  font-size: 0.99rem;
-  color: #b41e1e;
+  font-size: 0.8rem;
+  font-weight: 600;
+  gap: 1rem !important;
+  color: #003bfd;
   padding: 0 1px;
   user-select: none;
 }
@@ -193,12 +202,12 @@ input[type="range"]:focus {
   margin-top: 7px;
 }
 input[type="checkbox"] {
-  accent-color: #d81a1e;
+  accent-color: #003bfd;
   width: 18px;
   height: 18px;
   border-radius: 5px;
   margin-right: 7px;
-  border: 2px solid #d81a1e;
+  border: 2px solid #003bfd;
 }
 .label-checkbox {
   font-size: 0.97rem;
@@ -207,11 +216,11 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 .btn-simular {
-  background: #d81a1e;
-  color: #fff;
+  background: #fff;
+  color: #003bfd;
   padding: 15px 0 13px 0;
   width: 100%;
-  border-radius: 18px;
+  border-radius: 32px;
   font-size: 1.12rem;
   font-weight: bold;
   border: none;
@@ -222,7 +231,8 @@ input[type="checkbox"] {
   transition: background 0.2s;
 }
 .btn-simular:hover {
-  background: #b51720;
+  background: #003bfd;
+  color: #fff;
 }
 
 
@@ -241,7 +251,7 @@ input[type="checkbox"] {
 .titulo-resultado {
   font-size: 1.18rem;
   font-weight: bold;
-  color: #d81a1e;
+  color: #0044ff;
   text-align: center;
   margin-bottom: 18px;
   letter-spacing: 0.01em;
@@ -264,7 +274,7 @@ input[type="checkbox"] {
 .input-form {
   font-family: 'Montserrat', Arial, sans-serif;
   padding: 11px 12px;
-  border: 1.2px solid #d81a1e;
+  border: 1.2px solid #0044ff;
   border-radius: 7px;
   font-size: 1rem;
   outline: none;
@@ -272,7 +282,7 @@ input[type="checkbox"] {
   transition: border 0.2s;
 }
 .input-form:focus {
-  border-color: #b51720;
+  border-color: #0044ff;
 }
 .cep-wrap {
   display: flex;
@@ -288,13 +298,13 @@ input[type="checkbox"] {
   white-space: nowrap;
 }
 .cep-link:hover {
-  color: #d81a1e;
+  color: #0044ff;
 }
 .checkbox-form {
   display: flex;
   align-items: center;
   font-size: 0.96rem;
-  color: #b41e1e;
+  color: #0044ff;
   margin-bottom: 0;
   gap: 6px;
   font-weight: 500;
@@ -304,7 +314,7 @@ input[type="checkbox"] {
   align-items: center;
   gap: 5px;
   font-size: 0.98rem;
-  color: #b41e1e;
+  color: #0044ff;
   font-weight: 600;
   user-select: none;
 }
@@ -453,15 +463,17 @@ input[type="checkbox"] {
       value="45000"
       oninput="atualizarValor(this.value)"
     />
+    
     <div class="range-values">
       <span id="rangeMinLabel">R$ 45.000,00</span>
+  
       <span id="rangeMaxLabel">R$ 250.000,00</span>
     </div>
   </div>
-  <div class="checkbox-wrap">
+  <!-- <div class="checkbox-wrap">
     <input type="checkbox" id="checkOutroValor">
     <label for="checkOutroValor" class="label-checkbox">Informar outro valor</label>
-  </div>
+  </div> -->
   <button class="btn-simular" onclick="simular()">SIMULAR CONSÓRCIO</button>
 </div>
 
